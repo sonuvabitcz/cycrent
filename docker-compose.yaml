@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  backend:
+    container_name: backend
+    image: app:django
+    build: ./backend
+    # entrypoint: ["/entrypoint.sh"]
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    depends_on: # links:
+      - db
+    # Maps port on the local machine to port on Docker image
+    ports:
+      - "8000:8000"
+    volumes:
+    # Copy changes made to the project to your image in real-time.
+      - ./backend:/app/backend
+      # - ./tmp_mysqld/cycrent/mysqld:/run/mysqld
+    # Handles the command used to run the project in the Docker container.
+
+  db:
+    container_name: database
+    image: mysql:8.0.29
+    ports:
+      - "30000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: trailking201
+      MYSQL_DATABASE: 'roytuts'
+    volumes:
+      # том в которых будет храниться база данных
+      - ./db:/docker-entrypoint-initdb.d/:ro
+      # - ./tmp_mysqld/cycrent/mysqld:/var/run/mysqld
