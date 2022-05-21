@@ -3,7 +3,7 @@ version: '3'
 services:
   backend:
     container_name: backend
-    image: app:django
+    # image: app:django
     build: ./backend
     # entrypoint: ["/entrypoint.sh"]
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
@@ -24,9 +24,13 @@ services:
     ports:
       - "30000:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: trailking201
-      MYSQL_DATABASE: 'roytuts'
+      MYSQL_DATABASE: 'cycrent_db'
+      # MYSQL_USER: 'root'
+      # MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'trailking201'
     volumes:
       # том в которых будет храниться база данных
-      - ./db:/docker-entrypoint-initdb.d/:ro
+      # - ./db:/docker-entrypoint-initdb.d/:ro
+      - ./cache/db:/var/lib/mysql
       # - ./tmp_mysqld/cycrent/mysqld:/var/run/mysqld
+

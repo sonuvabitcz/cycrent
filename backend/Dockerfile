@@ -13,8 +13,7 @@ WORKDIR /app/backend
 COPY ./requirements.txt /app/backend/requirements.txt
 
 RUN pip3 install --upgrade pip
-RUN \
-    apk update && \
+RUN apk update && \
 	apk add --no-cache mariadb-connector-c-dev && \
 	apk add python3 python3-dev mariadb-dev build-base && \
 	pip3 install mysqlclient && \
@@ -27,6 +26,7 @@ COPY ./entrypoint.sh /entrypoint.sh
 COPY . .
 
 RUN ["chmod", "+x", "/entrypoint.sh"]
+# RUN ["chmod", "+x", "./manage.py"]
 ENTRYPOINT ["/entrypoint.sh"]
 
 # Create a user that can run your container

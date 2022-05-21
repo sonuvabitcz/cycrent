@@ -13,19 +13,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from api.views import recipe_view_set
-from rest_framework import routers
+# from api.views import recipe_view_set
 from api import views
+from cycrent import settings
 
-router = routers.DefaultRouter()
-router.register(r'api', recipe_view_set) #the route tha will be used to access your API on the browser
 
 urlpatterns = [
-    # removed by mysql tutorial
-    # path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls')) # Adds 'Login' link in the top right of the page
+    path('admin/', admin.site.urls),
+    path('', include('api.urls')),
+    # path('api-auth/', include('rest_framework.urls')) # Adds 'Login' link in the top right of the page
+    # path('', include(router.urls)),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = views.pageNotFound

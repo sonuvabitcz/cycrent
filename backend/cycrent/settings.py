@@ -27,19 +27,20 @@ SECRET_KEY = 'django-insecure-6e$4uvw*pguda(-ez84drc3=+5-it#e=v1)_@kk@6+sm*zt-3i
 DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0']
+# ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    # 'django.contrib.sessions',
-    # 'django.contrib.messages',
-    # 'django.contrib.staticfiles',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
 	'rest_framework', # for Django REST Framework to work
-    'api' # newly created app
+    'api.apps.ApiConfig', # newly created app
 ]
 
 MIDDLEWARE = [
@@ -86,12 +87,12 @@ WSGI_APPLICATION = 'cycrent.wsgi.application'
 DATABASES = {
     'default': {
 		'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'roytuts',
+        'NAME': 'cycrent_db',
 		'USER': 'root',
 		'PASSWORD': 'trailking201',
 		'HOST': 'db',
 		# 'HOST': '',
-		'PORT': '3306'
+		'PORT': '3306',
     }
 }
 
@@ -120,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Minsk'
 
 USE_I18N = True
 
@@ -131,8 +132,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_DIRS = []
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
