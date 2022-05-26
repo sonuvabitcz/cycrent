@@ -10,12 +10,10 @@ from rest_framework import routers
 # router = routers.DefaultRouter()
 # router.register(r'api', index) #the route tha will be used to access your API on the browser
 urlpatterns = [
-    path('addpage/', addpage, name='add_page'),
-    path('contact/', contact, name='contact'),
-    path('login/', login, name='login'),
-    path('', index, name='home'),
-    path('about/', about, name='about'),
-    path('post/<int:post_id>', show_post, name='post'),
-    path('<slug:sms>/', index_args),
-    # path('<slug:sms>/', index), # лучше слаги использовать
+    path('', HomePage.as_view(), name='home'),
+    path('bicycles/', AllBicycles.as_view(), name='bicycles'),
+    path('bicycle/<slug:bic_slug>', ShowBicycle.as_view(), name='bicycle'),
+    path('sign_in/', show_sign_in, name='sign_in'),
+    path('registrate/', RegistrateUser.as_view(), name='registrate'),
+    path('my_bicycles/', MyBicycles.as_view(), name='my_bicycles'),
 ]

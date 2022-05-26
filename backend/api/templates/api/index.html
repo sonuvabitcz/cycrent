@@ -2,10 +2,10 @@
 
 {% block content %}
 <ul class="list-articles">
-	{% for b in bicycles %}
+	{% for u in users %}
 	<li>
-		<h3>{{b.brand}} {{b.model}}</h3>
-		<p>{{b.type}}  {{b.price}} BYN</p>
+		<h3>{{u.first_name}} {{u.last_name}}</h3>
+		<p>+{{u.telephone}}  Card Num:{{u.bank_card.num}}</p>
 		<p class="link-read-post"><a href="{{ b.get_absolute_url }}">Read about</a></p>
 	</li>
 	{% endfor %}

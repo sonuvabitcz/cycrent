@@ -21,12 +21,13 @@ INSERT INTO `bicycles` (`brand`, `model`, `type`, `wheel_size`, `description`, `
 	('Scott', 'Speedster 10', 'Road', 28, 'The SCOTT Speedster 10 is a light, agile, and cost efficient alloy road bike. With fully integrated cables, not only will this bike ride well, but it will most definitely look the part!', 15);
 
 
-  -- BankCard.objects.create(num='9275928376987264',ccv='532')
-  -- BankCard.objects.create(num='6352938992848738',ccv='298')
-  -- BankCard.objects.create(num='8297592882976529',ccv='105')
+  -- BankCard.objects.create(num='9275928376987264',ccv='532',money=0)
+  -- BankCard.objects.create(num='6352938992848738',ccv='298',money=0)
+  -- BankCard.objects.create(num='8297592882976529',ccv='105',money=0)
 
-  -- User.objects.create(first_name='Paul', last_name='Traputs',login='goingtowow',telephone='375295552019',password='1111',bank_card=)
-
+  -- User.objects.create(first_name='Paul', last_name='Traputs',login='goingtowow',telephone='375295552019',password='1111',bank_card=BankCard.objects.get(id=1))
+  -- User.objects.create(first_name='Yan', last_name='Barshcheuski',login='souma',telephone='375293563019',password='2222',bank_card=BankCard.objects.get(id=2))
+  -- User.objects.create(first_name='Simon', last_name='Muzika',login='homylen',telephone='375295923219',password='3333',bank_card=BankCard.objects.get(id=1))
 
 -- Bicycle.objects.create(brand='Scott', model='Speedster 10', type='Road', wheel_size=28, description='The SCOTT Speedster 10 is a light, agile, and cost efficient alloy road bike. With fully integrated cables, not only will this bike ride well, but it will most definitely look the part!', price=15)
 

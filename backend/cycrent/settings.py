@@ -68,6 +68,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+                'api_tags':'api.templatetags.api_tags'
+            }
         },
     },
 ]
@@ -115,6 +118,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+# AUTH_USER_MODEL = 'api.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/

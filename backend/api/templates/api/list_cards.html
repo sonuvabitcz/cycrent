@@ -1,0 +1,7 @@
+{% for c in cards %}
+	{% if c.num == card_selected %}
+	<li class="selected">{{c.num}}</li>
+	{% else %}
+	<li><a href="{{ c.get_absolute_url }}">{{c.num}}</a></li>
+	{% endif %}
+{% endfor %}
