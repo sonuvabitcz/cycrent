@@ -13,5 +13,74 @@
 
 
 {% block content %}
-<h3></h3>
+
+<div class="container mt-5">
+	<div class="row">
+		 <div class="col-lg-8">
+			<!-- Post content-->
+			<article>
+				<!-- Post header-->
+				<header class="mb-4">
+						<!-- Post title-->
+						<!-- <h1 class="fw-bolder mb-1">{{ bicycle.brand }} {{ bicycle.model }}</h1> -->
+						<!-- Post meta content-->
+						<!-- <div class="text-muted fst-italic mb-2">Posted on January 1, 2022 by Start Bootstrap</div> -->
+						<!-- Post categories-->
+						<!-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a> -->
+						<p class="badge bg-secondary text-decoration-none link-light">Hot price</p>
+				</header>
+				<!-- Preview image figure-->
+				<figure class="mb-4"><img class="img-fluid rounded" src="{{ bicycle.image1.url }}" alt="..." /></figure>
+				<!-- Preview image figure-->
+				<figure class="mb-4"><img class="img-fluid rounded" src="{{ bicycle.image2.url }}" alt="..." /></figure>
+				<!-- Preview image figure-->
+				<figure class="mb-4"><img class="img-fluid rounded" src="{{ bicycle.image3.url }}" alt="..." /></figure>
+				<!-- Post content-->
+				<section class="mb-5">
+						<p class="fs-5 mb-4">{{ bicycle.description }}</p>
+				</section>
+			</article>
+		</div>
+		<!-- Side widgets-->
+		<div class="col-lg-4">
+			<!-- Side widget-->
+			<div class="card mb-4">
+				<div class="card-header">Type</div>
+				<div class="card-body">{{ bicycle.type }}</div>
+		  </div>
+			<div class="card mb-4">
+				 <div class="card-header">Fork</div>
+				 <div class="card-body">{{ bicycle.fork }}</div>
+			</div>
+			<div class="card mb-4">
+				 <div class="card-header">Price</div>
+				 <div class="card-body">{{ bicycle.price }} BYN per hour</div>
+			</div>
+			<form action=""></form>
+
+
+			<form method="post">
+			{% csrf_token %}
+				<div class="form-label">
+					<label for="{{ form.time_get.id_for_label }}">{{ form.time_get.label }}</label>
+					{{ form.time_get }}
+					<div class="form-error">
+						{{ form.time_get.errors }}
+					</div>
+				</div>
+	
+				<div class="form-label">
+					<label for="{{ form.time_return.id_for_label }}">{{ form.time_return.label }}</label>
+					{{ form.time_return }}
+					<div class="form-error">
+						{{ form.time_return.errors }}
+					</div>
+				</div>
+				<p id="total-cost">Total cost:</p>
+				<button class="w-100 btn btn-lg btn-primary" type="submit">Rent Bicycle</button>
+			</form>
+	  </div>
+	</div>
+</div>
+
 {% endblock %}

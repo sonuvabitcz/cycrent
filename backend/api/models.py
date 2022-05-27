@@ -1,8 +1,10 @@
+from datetime import tzinfo
 from django.db import models
 from django.urls import reverse
 # from django.contrib.auth.models import AbstractBaseUser, AbstractUser, BaseUserManager
 from django.contrib.auth.models import User
-# from django.utils.translation import ugettext_lazy as _
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Bicycle(models.Model):
@@ -33,6 +35,29 @@ class Bicycle(models.Model):
         return reverse('bicycle', kwargs={'bic_slug':self.slug})
 
 
+class RentingInfo(models.Model):
+    bicycle = models.ForeignKey('Bicycle', on_delete=models.CASCADE, default=None)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    time_get = models.DateTimeField()
+    time_return = models.DateTimeField()
+    total_price = models.IntegerField()
+    status = models.BooleanField(default=False)
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    money = models.IntegerField(default=3000)
+    date_register = models.DateField(auto_now_add=True)
+
+# users = User.objects.all().select_related('profile') # fast accessing to database https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
 
 # class CustomUserManager(BaseUserManager):
 #     """
@@ -153,10 +178,3 @@ class Bicycle(models.Model):
 #     def get_absolute_url(self):
 #         return reverse('card', kwargs={'card_num':self.num})
 
-
-class RentingInfo(models.Model):
-    bicycle = models.ForeignKey('Bicycle', on_delete=models.CASCADE, default=None)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
-    time_get = models.DateTimeField()
-    time_return = models.DateTimeField()
-    status = models.BooleanField(default=False)

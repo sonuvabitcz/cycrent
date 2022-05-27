@@ -7,7 +7,7 @@ class DataMixin:
     def get_user_context(self, **kwargs):
         context = kwargs
         cp_menu = menu.copy()
-        # если юзер не вошел, убирается из списка My Bicycles
+        # если юзер не вошел, из меню убирается My Bicycles
         if not self.request.user.is_authenticated:
             cp_menu.pop(2)
         context['menu'] = cp_menu

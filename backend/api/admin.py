@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
-from .models import Bicycle, RentingInfo
+from .models import *
 
 
 # class CustomUserAdmin(UserAdmin):
@@ -21,11 +21,21 @@ from .models import Bicycle, RentingInfo
 
 
 class BicycleAdmin(admin.ModelAdmin):
-    list_display = ('brand', 'model', 'slug', 'type', 'wheel_size', 'fork', 'description', 'price', 'description', 'price')
+    list_display = ('brand', 'model', 'slug', 'type', 'wheel_size', 'fork', 'price', 'get_rentings')
     prepopulated_fields = {"slug":("brand","model")}
 
+    def get_rentings(self, obj):
+        return "\n".join([p.username for p in obj.renting_users.all()])
+
+class RentingInfoAdmin(admin.ModelAdmin):
+    list_display = ('bicycle', 'user', 'time_get', 'time_return', 'status')
+
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'money', 'date_register')
 
 # admin.site.register(CustomUser, CustomUserAdmin)
-# admin.site.register(User, UserAdmin)
 # admin.site.register(BankCard, BankCardAdmin)
+# admin.site.register(User, UserAdmin)
 admin.site.register(Bicycle, BicycleAdmin)
+admin.site.register(RentingInfo, RentingInfoAdmin)
+admin.site.register(Profile, ProfileAdmin)

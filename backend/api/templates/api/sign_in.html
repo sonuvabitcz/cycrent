@@ -8,10 +8,14 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>{{ title }}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'api/images/logo.ico' %}" />
 
+	 <!-- Bootstrap styles -->
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+   
     <!-- Core theme Bootstrap -->
     <!-- <link href="{% static 'api/theme-1/css/styles.css' %}" rel="stylesheet" /> -->
-    <link href="{% static 'api/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <!-- <link href="{% static 'api/css/bootstrap.min.css' %}" rel="stylesheet" /> -->
     <!-- <link rel="stylesheet" href="{% static 'api/css/signin.css' %}"> -->
 
 	<style>
@@ -90,19 +94,20 @@
       <a class="navbar-brand nav_signin" href="{% url 'registrate' %}">Registrate</a>
       <h2 class="h2 mb-3 home-href">Sign in</h2>
     </div>
+    <div class="form-error">{{ form.non_field_errors }}</div>
 	  <form method="post">
       {% csrf_token %}
 		  <div class="form-floating">
-        <label class="form-label" for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
         {{ form.username }}
+        <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
         <div class="form-error">
           {{ form.username.errors }}
         </div>
 		  </div>
 
 		  <div class="form-floating">
-        <label class="form-label" for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
         {{ form.password }}
+        <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
         <div class="form-error">
           {{ form.password.errors }}
         </div>

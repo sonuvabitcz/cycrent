@@ -128,8 +128,11 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Europe/Minsk'
 
+DATE_INPUT_FORMATS = ('%Y-%m-%d %H', )
+
 USE_I18N = True
 
+# Django uses UTC timezone if it is True
 USE_TZ = True
 
 

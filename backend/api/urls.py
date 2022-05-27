@@ -12,8 +12,9 @@ from rest_framework import routers
 urlpatterns = [
     path('', HomePage.as_view(), name='home'),
     path('bicycles/', AllBicycles.as_view(), name='bicycles'),
-    path('bicycle/<slug:bic_slug>', ShowBicycle.as_view(), name='bicycle'),
-    path('sign_in/', show_sign_in, name='sign_in'),
+    path('bicycles/<slug:bic_slug>', ShowBicycle.as_view(), name='bicycle'),
+    path('sign_in/', SignIn.as_view(), name='sign_in'),
+    path('logout/', logout_user, name='logout'),
     path('registrate/', RegistrateUser.as_view(), name='registrate'),
     path('my_bicycles/', MyBicycles.as_view(), name='my_bicycles'),
 ]
