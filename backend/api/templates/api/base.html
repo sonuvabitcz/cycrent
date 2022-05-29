@@ -11,8 +11,12 @@
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{% static 'api/images/logo.ico' %}" />
 
+
 	 <!-- Bootstrap styles -->
 	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+	 <!-- Main CSS -->
+	 <link href="{% static 'api/css/main.css' %}" rel="stylesheet">
 
     <!-- <link href="{% static 'api/theme-1/css/styles.css' %}" rel="stylesheet" /> -->
     <!-- <link href="{% static 'api/theme-1/css/bootstrap.min.css' %}" rel="stylesheet" /> -->
@@ -32,11 +36,18 @@
 		{
 			var date1 = new Date(document.getElementById('time_get').value);
 			var date2 = new Date(document.getElementById('time_return').value);
-			var diffTime = Math.abs(date2 - date1);
-			var diffHours = Math.ceil(diffTime / (1000 * 60 * 60)); 
-			var price = "{{ bicycle.price }}";
-			var cost = price * diffHours;
-			document.getElementById('total-cost').innerHTML = `Total cost: ${cost} BYN (${diffHours} hours)`;
+			var diffTime = date2 - date1;
+			if (diffTime <= 0) {
+				document.getElementById('non_field_errors').innerHTML = "Incorrect time";
+				document.getElementById('total-cost').innerHTML = "Total cost: 0 BYN (0 hours)";
+			}
+			else {
+				var diffHours = Math.ceil(diffTime / (1000 * 60 * 60)); 
+				var price = "{{ bicycle.price }}";
+				var cost = price * diffHours;
+				// document.getElementById('non_field_errors').innerHTML = "";
+				document.getElementById('total-cost').innerHTML = `Total cost: ${cost} BYN (${diffHours} hours)`;
+			}
 			// var date2 = document.getElementById('time_return').getField()
 		}
 	</script>

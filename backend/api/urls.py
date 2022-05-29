@@ -1,6 +1,5 @@
 from django.urls import path, include
 from .views import *
-from rest_framework import routers
 
 # обработка исключений при запросах к серверу
 # handler500 - ошибка сервера
@@ -17,4 +16,5 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('registrate/', RegistrateUser.as_view(), name='registrate'),
     path('my_bicycles/', MyBicycles.as_view(), name='my_bicycles'),
+    path('my_bicycles/<int:pk>', MyOneBicycle.as_view(), name='my_one_bicycle'),
 ]

@@ -56,7 +56,6 @@
 				 <div class="card-header">Price</div>
 				 <div class="card-body">{{ bicycle.price }} BYN per hour</div>
 			</div>
-			<form action=""></form>
 
 
 			<form method="post">
@@ -76,7 +75,29 @@
 						{{ form.time_return.errors }}
 					</div>
 				</div>
-				<p id="total-cost">Total cost:</p>
+
+				{% if form.errors %}
+				<p>Hellllllllo</p>
+				{% endif %}
+	
+				<!-- <div class="form-label" style="display: none;"> -->
+				<div class="form-label" style="display: none;">
+					<label for="{{ form.time_return.id_for_label }}">{{ form.bicycle.label }}</label>
+					{{ form.bicycle }}
+					<div class="form-error">
+						{{ form.bicycle.errors }}
+					</div>
+				</div>
+	
+				<div class="form-label" style="display: none;">
+					<label for="{{ form.time_return.id_for_label }}">{{ form.user.label }}</label>
+					{{ form.user }}
+					<div class="form-error">
+						{{ form.user.errors }}
+					</div>
+				</div>
+				<p id="total-cost">Total cost: 0 BYN (0 hours)</p>
+				<div class="form-error" id="non_field_errors">{{ form.non_field_errors }}</div>
 				<button class="w-100 btn btn-lg btn-primary" type="submit">Rent Bicycle</button>
 			</form>
 	  </div>

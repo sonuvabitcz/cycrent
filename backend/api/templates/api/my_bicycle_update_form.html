@@ -5,27 +5,7 @@
 
 {% block content %}
 
-<div class="row g-4 py-5 row-cols-1 row-cols-lg-4">
-	<div class="feature col">
-		<h4 class="bs-gray-text">Username:</h4>
-		<h4>{{ usr_username }}</h4>
-	</div>
-	<div class="feature col">
-		<h4 class="bs-gray-text">Email:</h4>
-		<h4>{% if usr_email %}{{usr_email}}{% else %} <h4 class="bs-gray-text">-- empty --</h4>{% endif %}</h4>
-	</div>
-	<div class="feature col">
-		<h4 class="bs-gray-text">Money:</h4>
-		<h4>{{ usr_money }} BYN</h4>
-	</div>
-	<div class="feature col">
-		<h4 class="bs-gray-text">Bicycles amount:</h4> 
-		<h4>{{ usr_count_bicycles }}</h4>
-	</div>
-</div>
-
 <div class="row">
-	{% for renting in rents %}
 	<div class="col-md-12">
 		<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-350 position-relative">
 			<div class="col p-4 d-flex flex-column position-static">
@@ -35,9 +15,42 @@
 				<p class="card-text mb-auto date-parapgraph">Time get: {{ renting.time_get }}</p>
 				<p class="card-text mb-auto date-parapgraph">Time return: {{ renting.time_return }}</p>
 				<!-- <a href="#" class="stretched-link">Continue reading</a> -->
-				<!-- <button class="w-100 btn btn-lg btn-outline-primary col-md-6" href="{{ renting.bicycle.get_absolute_url_my }}">Show Details</button> -->
-				<div class="text-center"><a class="w-100 btn btn-lg btn-outline-primary col-md-6" href="{{ renting.get_absolute_url }}">Show Details</a></div>
+				<form class="row md-6" method="post">
+					{% csrf_token %}
+					<div class="col-md-5" style="margin-bottom: 15px;">
+						<!-- <button type="button" class="w-100 btn btn-lg btn-outline-primary col-md-6" name="edit_renting-{{ renting.pk }}">Edit Renting</button> -->
+						<button type="submit" class="w-100 btn btn-lg btn-outline-primary col-md-6" name="edit_renting">Edit Renting</button>
+					</div>
+					<div class="col-md-5">
+						<div class="form-label">
+							<label for="{{ edit_renting_form.time_get.id_for_label }}">{{ edit_renting_form.time_get.label }}</label>
+							{{ edit_renting_form.time_get }}
+							<div class="form-error">
+								{{ edit_renting_form.time_get.errors }}
+							</div>
+							<div class="form-error">
+								{{ edit_renting_form.time_get.errors }}
+							</div>
+						</div>
+						<div class="form-label">
+							<label for="{{ edit_renting_form.time_return.id_for_label }}">{{ edit_renting_form.time_return.label }}</label>
+							{{ edit_renting_form.time_return }}
+							<div class="form-error">
+								{{ edit_renting_form.time_return.errors }}
+							</div>
+							<div class="form-error">
+								{{ edit_renting_form.time_return.errors }}
+							</div>
+						</div>
+					</div>
+				</form>
 
+				<form class="col-md-11" method="post">
+					<button type="submit" class="w-40 btn btn-lg btn-outline-primary col-md-6" name="cancel_renting">Cancel Renting</button>
+					<div class="form-error">
+						{{ cancel_renting_form.time_return.errors }}
+					</div>
+				</div>
 			</div>
 			<!-- <div class="col-auto d-none d-lg-block"> -->
 			<div class="col-auto d-none d-lg-block">
@@ -50,7 +63,6 @@
 			</div>
 		</div>
 	</div>
-	{% endfor %}
  </div>
 
 

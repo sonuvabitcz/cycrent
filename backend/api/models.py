@@ -43,10 +43,14 @@ class RentingInfo(models.Model):
     total_price = models.IntegerField()
     status = models.BooleanField(default=False)
 
+    def get_absolute_url(self):
+        return reverse('my_one_bicycle', kwargs={'pk':self.pk})
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     money = models.IntegerField(default=3000)
     date_register = models.DateField(auto_now_add=True)
+    # profile_photo = models.ImageField(default='images/bicycles/avatar.jpg', upload_to="images/avatars/")
 
 # users = User.objects.all().select_related('profile') # fast accessing to database https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone
 

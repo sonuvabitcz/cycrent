@@ -1,0 +1,17 @@
+.form-error ul {
+	list-style: none;
+	padding: 0;
+	color: #CC0000;
+}
+.form-error {
+	color: #CC0000;
+}
+.price-parapgraph {
+	margin: 20px 0 20px 0 !important;
+}
+.date-parapgraph {
+	margin: 0 0 20px 0 !important;
+}
+.bs-gray-text{
+	color: var(--bs-gray-500);
+}
