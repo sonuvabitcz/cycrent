@@ -43,11 +43,6 @@ class RegistrateUserForm(UserCreationForm):
             user.save()
         return user
 
-
-    def clean(self):
-        cleaned_data = super().clean()
-        raise ValidationError('Incorrect time')
-
     # def clean_first_name(self):
     #     first_name = self.cleaned_data['first_name']
     #     if len(first_name) > 50:
@@ -83,7 +78,7 @@ def is_correct_time(date1, date2):
     return True
 
 
-def is_time_free(date1, date2, bicycle):
+def is_time_free(date1, date2, bicycle, user):
     rents = RentingInfo.objects.filter(bicycle=bicycle)
     print(rents)
     for r in rents.all():
@@ -93,9 +88,13 @@ def is_time_free(date1, date2, bicycle):
         # print(r.time_return)
         # print("---------------------------")
         if date1 < r.time_get and date2 > r.time_get:
+            if r.user == user:
+                continue
             print("Error: This time is already taken")
             return False
         elif date1 > r.time_get and date1 < r.time_return:
+            if r.user == user:
+                continue
             print("Error: This time is already taken")
             return False
     return True
@@ -135,27 +134,35 @@ class RentBicycleForm(forms.ModelForm):
         'time_get': forms.DateTimeInput(
             format=('%Y-%m-%d %H'),
             attrs={
-                'onchange': 'showEndDate()',
+                'onchange': 'totalCostBicycle()',
                 'id': 'time_get',
                 'class': 'form-control',
                 'placeholder': 'Select a time get',
                 'type': 'datetime-local',
-                'value': '2022-05-28T09:00',
+                'value': '2022-06-23T08:00',
                 'min': str(date.today()) + 'T09:00',
                 'max': '2022-08-01T00:00'
                 }),
         'time_return': forms.DateTimeInput(
             format=('%Y-%m-%d %H'),
             attrs={
-                'onchange': 'showEndDate()',
+                'onchange': 'totalCostBicycle()',
                 'id': 'time_return',
                 'class': 'form-control', 
                 'placeholder': 'Select a time return',
                 'type': 'datetime-local',
-                'value': '2022-05-30T22:00',
+                'value': '2022-06-24T14:00',
                 'min': str(date.today()) + 'T22:00',
                 'max': '2022-08-01T00:00'
                 }),
+        # 'bicycle': forms.MultipleChoiceField(
+        #     attrs={
+        #         'required': 'false',
+        #     }),
+        # 'user': forms.MultipleChoiceField(
+        #     attrs={
+        #         'required': 'false',
+        #     })
         }
 
 
@@ -167,8 +174,8 @@ class RentBicycleForm(forms.ModelForm):
         date2 = cleaned_data.get('time_return')
         bicycle = cleaned_data.get('bicycle')
         user = cleaned_data.get('user')
-        # print(bicycle)
-        # print(user)
+        print(bicycle)
+        print(user)
         if date1 and date2:
             if not is_correct_time(date1, date2):
                 print("\n--------------\nError: Incorrect time IN\n--------------\n")
@@ -176,7 +183,7 @@ class RentBicycleForm(forms.ModelForm):
                 self.add_error('time_get','Incorrect time')
                 raise forms.ValidationError(_('Incorrect time'))
         if date1 and date2 and bicycle and user:
-            if not is_time_free(date1, date2, bicycle):
+            if not is_time_free(date1, date2, bicycle, user):
                 self.add_error(None,'This time is already taken')
                 self.add_error('time_get','This time is already taken')
                 raise forms.ValidationError(_('This time is already taken'))
@@ -216,43 +223,56 @@ class CancelRenting(forms.ModelForm):
 
 
 class EditRentingForm(forms.ModelForm):
-    # edit_renting = forms.BooleanField(widget=forms.HiddenInput, initial=True)
     time_get = forms.DateTimeInput()
     time_return = forms.DateTimeInput()
 
-    def __init__(self, *args, **kwargs):
-        super(EditRentingForm, self).__init__(*args, **kwargs)
-
     class Meta:
         model = RentingInfo
-        exclude = ('bicycle', 'user','status',)
-        fields = ('time_get', 'time_return',)
+        exclude = ('status',)
+        fields = ('time_get', 'time_return', 'user', 'bicycle',)
         widgets = {
         'time_get': forms.DateTimeInput(
             format=('%Y-%m-%d %H'),
             attrs={
-                'onchange': 'showEndDate()',
+                'onchange': 'totalCostEdit()',
                 'id': 'time_get',
                 'class': 'form-control',
                 'placeholder': 'Select a time get',
                 'type': 'datetime-local',
-                'value': '2022-05-31T09:00',
+                'value': '2022-06-01T08:00',
                 'min': str(date.today()) + 'T09:00',
                 'max': '2022-08-01T00:00'
                 }),
         'time_return': forms.DateTimeInput(
             format=('%Y-%m-%d %H'),
             attrs={
-                'onchange': 'showEndDate()',
+                'onchange': 'totalCostEdit()',
                 'id': 'time_return',
                 'class': 'form-control', 
                 'placeholder': 'Select a time return',
                 'type': 'datetime-local',
-                'value': '2022-06-02T22:00',
+                'value': '2022-06-02T14:00',
                 'min': str(date.today()) + 'T22:00',
                 'max': '2022-08-01T00:00'
                 }),
         }
+
+
+    def clean(self):
+        cleaned_data = super().clean()
+        date1 = cleaned_data.get('time_get')
+        date2 = cleaned_data.get('time_return')
+        bicycle = cleaned_data.get('bicycle')
+        user = cleaned_data.get('user')
+        if date1 and date2:
+            if not is_correct_time(date1, date2):
+                raise forms.ValidationError(_('Incorrect time'))
+        if date1 and date2 and bicycle and user:
+            if not is_time_free(date1, date2, bicycle, user):
+                raise forms.ValidationError(_('This time is already taken'))
+            # if not is_enough_money(date1, date2, bicycle, user):
+            #     raise forms.ValidationError(_('Not enough money to rent the bicycle'))
+        return self.cleaned_data
 
 
 

@@ -1,0 +1,293 @@
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+/app/backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1
+Internal Server Error: /bicycles/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 62, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 712, in resolve
+    obj = self.var.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/fields/files.py", line 65, in url
+    self._require_file()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/fields/files.py", line 40, in _require_file
+    raise ValueError(
+ValueError: The 'image1' attribute has no file associated with it.
+Not Found: /favicon.ico
+/app/backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+/app/backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1
+/app/backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1
+/app/backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+/app/backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+/app/backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /my_bicycles/1

@@ -10,4 +10,5 @@ done
 python manage.py makemigrations
 python manage.py migrate
 
+# uvicorn cycrent.asgi:application --reload
 python manage.py runserver 0.0.0.0:8000

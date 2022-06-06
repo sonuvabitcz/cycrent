@@ -15,19 +15,12 @@
 				<p class="card-text mb-auto date-parapgraph">Time get: {{ renting.time_get }}</p>
 				<p class="card-text mb-auto date-parapgraph">Time return: {{ renting.time_return }}</p>
 				<!-- <a href="#" class="stretched-link">Continue reading</a> -->
-				<form class="row md-6" method="post">
-					{% csrf_token %}
-					<div class="col-md-5" style="margin-bottom: 15px;">
-						<!-- <button type="button" class="w-100 btn btn-lg btn-outline-primary col-md-6" name="edit_renting-{{ renting.pk }}">Edit Renting</button> -->
-						<button type="submit" class="w-100 btn btn-lg btn-outline-primary col-md-6" name="edit_renting">Edit Renting</button>
-					</div>
-					<div class="col-md-5">
+				<div class="row">
+					<form class="col-md-6" method="post">
+						{% csrf_token %}
 						<div class="form-label">
 							<label for="{{ edit_renting_form.time_get.id_for_label }}">{{ edit_renting_form.time_get.label }}</label>
 							{{ edit_renting_form.time_get }}
-							<div class="form-error">
-								{{ edit_renting_form.time_get.errors }}
-							</div>
 							<div class="form-error">
 								{{ edit_renting_form.time_get.errors }}
 							</div>
@@ -38,18 +31,37 @@
 							<div class="form-error">
 								{{ edit_renting_form.time_return.errors }}
 							</div>
-							<div class="form-error">
-								{{ edit_renting_form.time_return.errors }}
-							</div>
 						</div>
-					</div>
-				</form>
+						<div class="form-label" style="display: none;">
+							<label for="{{ form.time_return.id_for_label }}">{{ edit_renting_form.bicycle.label }}</label>
+							{{ edit_renting_form.bicycle }}
+						</div>
+						<div class="form-label" style="display: none;">
+							<label for="{{ form.time_return.id_for_label }}">{{ edit_renting_form.user.label }}</label>
+							{{ edit_renting_form.user }}
+						</div>
+						<div class="form-error" id="non_field_errors">{{ edit_renting_form.non_field_errors }}</div>
+						<div class="form-error" id="non_field_errors">
+							{% if edit_renting_form.errors %}
+								{% for field in edit_renting_form %}
+									{% for error in field.errors %} 
+										<div class="form-error">
+												<strong>{{ error|escape }}</strong>
+										</div>
+									{% endfor %}
+								{% endfor %}
+							{% endif %}
+						</div>
+						<p id="total-cost">Total cost: 0 BYN (0 hours)</p>
+						<button type="submit" class="w-100 btn btn-lg btn-outline-primary col-md-6" name="edit_renting">Edit Renting</button>
+					</form>
 
-				<form class="col-md-11" method="post">
-					<button type="submit" class="w-40 btn btn-lg btn-outline-primary col-md-6" name="cancel_renting">Cancel Renting</button>
-					<div class="form-error">
-						{{ cancel_renting_form.time_return.errors }}
-					</div>
+					<form class="col-md-6 justify-content-center d-flex btn-red" method="post">
+						<button type="submit" class="w-100 btn btn-lg btn-outline-primary-red col-md-6 btn-cancel_rent" name="cancel_renting">Cancel Renting</button>
+						<div class="form-error">
+							{{ cancel_renting_form.time_return.errors }}
+						</div>
+					</form>
 				</div>
 			</div>
 			<!-- <div class="col-auto d-none d-lg-block"> -->

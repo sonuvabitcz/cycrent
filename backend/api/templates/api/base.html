@@ -32,13 +32,13 @@
 	<script type="text/javascript">
 		// document.getField('input','time_get').onchange = function() {showEndDate()};
 
-		function showEndDate()
+		function totalCostBicycle()
 		{
 			var date1 = new Date(document.getElementById('time_get').value);
 			var date2 = new Date(document.getElementById('time_return').value);
 			var diffTime = date2 - date1;
 			if (diffTime <= 0) {
-				document.getElementById('non_field_errors').innerHTML = "Incorrect time";
+				// document.getElementById('non_field_errors').innerHTML = "Incorrect time";
 				document.getElementById('total-cost').innerHTML = "Total cost: 0 BYN (0 hours)";
 			}
 			else {
@@ -49,6 +49,21 @@
 				document.getElementById('total-cost').innerHTML = `Total cost: ${cost} BYN (${diffHours} hours)`;
 			}
 			// var date2 = document.getElementById('time_return').getField()
+		}
+		function totalCostEdit()
+		{
+			var date1 = new Date(document.getElementById('time_get').value);
+			var date2 = new Date(document.getElementById('time_return').value);
+			var diffTime = date2 - date1;
+			if (diffTime <= 0) {
+				document.getElementById('total-cost').innerHTML = "Total cost: 0 BYN (0 hours)";
+			}
+			else {
+				var diffHours = Math.ceil(diffTime / (1000 * 60 * 60)); 
+				var price = "{{ renting.bicycle.price }}";
+				var cost = price * diffHours;
+				document.getElementById('total-cost').innerHTML = `Total cost: ${cost} BYN (${diffHours} hours)`;
+			}
 		}
 	</script>
 </head>
