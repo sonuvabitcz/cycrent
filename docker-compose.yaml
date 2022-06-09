@@ -7,6 +7,7 @@ services:
     build: ./backend
     # entrypoint: ["/entrypoint.sh"]
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    # command: sh -c "uvicorn cycrent.asgi:application --reload"
     depends_on: # links:
       - db
     # Maps port on the local machine to port on Docker image

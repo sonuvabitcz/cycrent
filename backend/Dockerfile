@@ -5,6 +5,8 @@ FROM python:3.9-alpine
 # of your application (e.g., Django logs) in real-time.
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+# ARG BUILD_ENV=staging_build
+# ENV APP_ENV=$BUILD_ENV
 # Make a directory in your Docker image, which you can use to store your source code
 # RUN mkdir /django_recipe_api
 # Set the /app/backend directory as the working directory
@@ -14,7 +16,8 @@ WORKDIR /app/backend
 COPY ./requirements.txt /app/backend/requirements.txt
 
 # RUN pip install build-essential libffi-dev
-RUN pip3 install --upgrade pip setuptools wheel
+# RUN pip3 install --upgrade pip setuptools wheel
+RUN pip3 install --upgrade pip
 RUN apk update && \
 	apk add --no-cache mariadb-connector-c-dev && \
 	apk add python3 python3-dev mariadb-dev build-base && \
@@ -36,12 +39,10 @@ COPY . .
 # SECRET_KEY is only included here to avoid raising an error when generating static files.
 # Be sure to add a real SECRET_KEY config variable in Heroku.
 # RUN DJANGO_SETTINGS_MODULE=cycrent.settings.prod \
-#     SECRET_KEY=TEST_SECRET_KEY \
-#     python3 backend/manage.py collectstatic --noinput
+    # SECRET_KEY=TEST_SECRET_KEY \
+    # python3 backend/manage.py collectstatic --noinput
 
-# ENV PORT 8000
-# EXPOSE 8000
-# EXPOSE $PORT
+# ENV PORT=8080
 
 # RUN ["ufw", "allow", "8000"]
 RUN ["chmod", "+x", "/entrypoint.sh"]

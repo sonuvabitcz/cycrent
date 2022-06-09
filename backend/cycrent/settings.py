@@ -15,7 +15,7 @@ import os
 # import dj_database_url
 # import environ
 
-os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+# os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
 # env = environ.Env()
 
@@ -34,13 +34,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-6e$4uvw*pguda(-ez84drc3=+5-it#e=v1)_@kk@6+sm*zt-3i'
+SECRET_KEY = 'django-insecure-6e$4uvw*pguda(-ez84drc3=+5-it#e=v1)_@kk@6+sm*zt-3i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'local']
-# ALLOWED_HOSTS = ['127.0.0.1']
+# ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'local']
+ALLOWED_HOSTS = ['0.0.0.0']
 
 # Application definition
 
