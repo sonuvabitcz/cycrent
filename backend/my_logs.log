@@ -610,3 +610,423 @@ Current template_name: bicycles.html
 Show all bicycles
 Current template_name: bicycle.html
 Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+/app/web/cycrent/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+/app/web/cycrent/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+Bad Request: /
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Session data corrupted
+Session data corrupted
+Not Found: /static/media/images/bicycles/cannondale-scalpel-ht-1_vx8ptsW.jpg
+Session data corrupted
+Session data corrupted
+Session data corrupted
+Not Found: /static/media/images/bicycles/cannondale-scalpel-ht-1_vx8ptsW.jpg
+Internal Server Error: /bicycles/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 62, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 712, in resolve
+    obj = self.var.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/fields/files.py", line 65, in url
+    self._require_file()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/fields/files.py", line 40, in _require_file
+    raise ValueError(
+ValueError: The 'image1' attribute has no file associated with it.
+Not Found: /static/media/images/bicycles/cube-stereo-one77-3_XE3Uoyx.jpg
+Not Found: /static/media/images/bicycles/cube-stereo-one77-2_vZ9zuph.jpg
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /static/media/images/bicycles/avatar.jpg
+/app/web/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Current template_name: index.html
+Default home page
+Current template_name: bicycles.html
+Show all bicycles
+Current template_name: bicycle.html
+Show one particular bicycle
+Not Found: /bicycles/
+Not Found: /static/media/images/bicycles/avatar.jpg
+Internal Server Error: /bicycles/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 62, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 712, in resolve
+    obj = self.var.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/app/web/api/models.py", line 36, in get_absolute_url
+    return reverse('bicycle', kwargs={'bic_slug':self.slug})
+  File "/usr/local/lib/python3.9/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/urls/resolvers.py", line 802, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'bicycle' with keyword arguments '{'bic_slug': ''}' not found. 1 pattern(s) tried: ['bicycles/(?P<bic_slug>[-a-zA-Z0-9_]+)\\Z']
+Internal Server Error: /bicycles/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 62, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 712, in resolve
+    obj = self.var.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/app/web/api/models.py", line 36, in get_absolute_url
+    return reverse('bicycle', kwargs={'bic_slug':self.slug})
+  File "/usr/local/lib/python3.9/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/urls/resolvers.py", line 802, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'bicycle' with keyword arguments '{'bic_slug': ''}' not found. 1 pattern(s) tried: ['bicycles/(?P<bic_slug>[-a-zA-Z0-9_]+)\\Z']
+Not Found: /bicycles/bomz-valera
+Internal Server Error: /bicycles/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 62, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 712, in resolve
+    obj = self.var.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 909, in _resolve_lookup
+    current = current()
+  File "/app/web/api/models.py", line 36, in get_absolute_url
+    return reverse('bicycle', kwargs={'bic_slug':self.slug})
+  File "/usr/local/lib/python3.9/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/urls/resolvers.py", line 802, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'bicycle' with keyword arguments '{'bic_slug': ''}' not found. 1 pattern(s) tried: ['bicycles/(?P<bic_slug>[-a-zA-Z0-9_]+)\\Z']
+Internal Server Error: /bicycles/bomz-valera
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+TypeError: 'ImageFieldFile' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.9/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/usr/local/lib/python3.9/site-packages/django/template/backends/django.py", line 62, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 958, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 1059, in render
+    output = self.filter_expression.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 712, in resolve
+    obj = self.var.resolve(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 842, in resolve
+    value = self._resolve_lookup(context)
+  File "/usr/local/lib/python3.9/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/fields/files.py", line 65, in url
+    self._require_file()
+  File "/usr/local/lib/python3.9/site-packages/django/db/models/fields/files.py", line 40, in _require_file
+    raise ValueError(
+ValueError: The 'image2' attribute has no file associated with it.

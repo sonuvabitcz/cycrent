@@ -38,7 +38,7 @@ class HomePage(DataMixin, TemplateView):
 
 
 class AllBicycles(DataMixin, ListView):
-    paginate_by = 1
+    paginate_by = 3
     model = Bicycle
     template_name = 'api/bicycles.html'
     context_object_name = 'bicycles'

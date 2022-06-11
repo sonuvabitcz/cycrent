@@ -1,55 +1,39 @@
-
-# The image you are going to inherit your Dockerfile from
 FROM python:3.9-alpine
 # Necessary, so Docker doesn't buffer the output and that you can see the output 
 # of your application (e.g., Django logs) in real-time.
-ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-# ARG BUILD_ENV=staging_build
-# ENV APP_ENV=$BUILD_ENV
-# Make a directory in your Docker image, which you can use to store your source code
-# RUN mkdir /django_recipe_api
-# Set the /app/backend directory as the working directory
-WORKDIR /app/backend
+ENV PYTHONDONTWRITEBYTECODE 1
 
-# Copy the requirements.txt file adjacent to the Dockerfile to your Docker image
-COPY ./requirements.txt /app/backend/requirements.txt
+WORKDIR /app/web
+EXPOSE 8000
 
-# RUN pip install build-essential libffi-dev
-# RUN pip3 install --upgrade pip setuptools wheel
+COPY ./requirements.txt /app/web/requirements.txt
+COPY ./entrypoint.sh /entrypoint.sh
+COPY . .
+
 RUN pip3 install --upgrade pip
 RUN apk update && \
 	apk add --no-cache mariadb-connector-c-dev && \
 	apk add python3 python3-dev mariadb-dev build-base && \
 	pip3 install mysqlclient && \
 	apk del python3-dev mariadb-dev build-base
-RUN apk add netcat-openbsd
-# RUN apk add build-essential libssl-dev libffi-dev python-dev
-# RUN apk add build-base libssl-dev libffi-dev python3-dev
-# RUN apk add libffi-dev
-RUN pip install -r /app/backend/requirements.txt
-RUN pip install coverage
-# RUN pip install channels
-# RUN pip3 install uvicorn
-# Copies from your local machine's current directory to the /app/backend folder in the Docker image
-COPY ./entrypoint.sh /entrypoint.sh
+RUN apk add netcat-openbsd && \
+	pip install -r /app/web/requirements.txt && \
+	pip install coverage
+RUN mkdir -p /vol/web/static && \
+	mkdir -p /vol/web/media
+	# chown -R app:app /vol && \
+	# chmod -R 755 /vol
 
-COPY . .
+# for deploying
+# RUN apk add ufw build-essential libpq-dev libmysqlclient-dev python3.9-dev default-libmysqlclient-dev libpython3.9-dev
+RUN pip3 install setuptools wheel && \
+	apk add ufw libpq-dev
 
-# SECRET_KEY is only included here to avoid raising an error when generating static files.
-# Be sure to add a real SECRET_KEY config variable in Heroku.
-# RUN DJANGO_SETTINGS_MODULE=cycrent.settings.prod \
-    # SECRET_KEY=TEST_SECRET_KEY \
-    # python3 backend/manage.py collectstatic --noinput
+# USER app
 
-# ENV PORT=8080
-
+# for deploying
 # RUN ["ufw", "allow", "8000"]
+
 RUN ["chmod", "+x", "/entrypoint.sh"]
-# RUN ["chmod", "+x", "./manage.py"]
 ENTRYPOINT ["/entrypoint.sh"]
-
-# Create a user that can run your container
-# RUN adduser -D user
-# USER user
-

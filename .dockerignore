@@ -1,5 +1,26 @@
-# Dev stuff
+# Git
 .git
 .gitignore
-README.md
+
+#Docker
+.docker
+
+#Python
+backend/__pycache__/
+backend/*/__pycache__/
+backend/*/*/__pycache__/
+backend/*/*/*/__pycache__/
+.env/
+.venv/
+venv/
+.idea
 .vscode
+
+#Local MySQL data
+cache
+
+#Other
+tmp_mysqld/
+forntend/
+htmlcov
+images-downloaded/
