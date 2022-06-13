@@ -17,10 +17,8 @@ done
 echo "Hello from run.sh!!!"
 
 python manage.py collectstatic --noinput
-echo "Hello after collectstatic!!!"
 python manage.py migrate
-echo "Hello after migrate!!!"
-# python manage.py createsuperuser
-# echo "Hello after createsuperuser!!!"
 
+
+# gunicorn cycrent.wsgi:application --bind 0.0.0.0:8000
 uwsgi --socket :9000 --workers 4 --master --enable-threads --module cycrent.wsgi

@@ -1,21 +1,46 @@
 version: '3.3'
 
 services:
-  backend:
-    container_name: backend
-    build: ./backend
+  web:
+    container_name: web
+    build: .
     # entrypoint: ["/entrypoint.sh"]
-    command: sh -c "python manage.py runserver 0.0.0.0:8000"
-    # command: sh -c "uvicorn cycrent.asgi:application --reload"
-    depends_on: # links:
+    # command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    # command: sh -c "gunicorn --bind 0.0.0.0:8000 cycrent.wsgi --workers=4"
+    depends_on:
       - db
     # Maps port on the local machine to port on Docker image
+    expose:
+      - "8000"
     ports:
       - "8000:8000"
+    # networks:
+    #   - django-network
     volumes:
     # Copy changes made to the project to your image in real-time.
-      - ./backend:/app/backend
+      - ./backend:/app/web
+      - ./data/web:/vol/web
       # - ./tmp_mysqld/cycrent/mysqld:/run/mysqld
+    environment:
+      - SECRET_KEY=devsecretkey
+      - DEBUG=1
+      - DB_HOST=db
+      - DB_NAME=cycrent_db
+      - DB_USER=root
+      - DB_PASS=trailking201
+      - ALLOWED_HOSTS=*
+
+  # nginx:
+  #   build: nginx
+  #   restart: always
+  #   volumes:
+  #     - ./backend:/app/web
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - web
+  #   networks:
+  #     - django-network
 
   db:
     container_name: database
@@ -33,3 +58,6 @@ services:
       - ./cache/db:/var/lib/mysql
       # - ./tmp_mysqld/cycrent/mysqld:/var/run/mysqld
 
+# networks:
+#   django-network:
+#     name: django-network

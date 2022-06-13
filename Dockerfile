@@ -49,7 +49,6 @@ ENV PATH="/scripts:/py/bin:$PATH"
 
 USER root
 RUN id
-# USER app
 
 CMD ["run.sh"]
 
