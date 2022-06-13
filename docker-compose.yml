@@ -27,7 +27,7 @@ services:
       - DB_HOST=db
       - DB_NAME=cycrent_db
       - DB_USER=root
-      - DB_PASSWORD=trailking201
+      - DB_PASS=trailking201
       - ALLOWED_HOSTS=0.0.0.0
 
   # nginx:

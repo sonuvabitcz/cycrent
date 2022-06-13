@@ -1,0 +1,60 @@
+version: '3.3'
+
+services:
+  gcloud:
+    image: google/cloud-sdk:338.0.0
+    volumes:
+      - gcp-creds:/creds
+      - .:/app
+    working_dir: /app
+    environment:
+      - CLOUDSDK_CONFIG=/creds
+  
+
+  app:
+    container_name: app
+    # user: "${UID}:${GID}"
+    build:
+      context: .
+    restart: always
+    volumes:
+      - static-data:/vol/web
+    environment:
+      - DB_HOST=db
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - SECRET_KEY=${SECRET_KEY}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0.29
+    restart: always
+    ports:
+      - "30000:3306"
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_ROOT_PASSWORD=${DB_PASS}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_USER=${DB_USER}
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  proxy:
+    container_name: proxy
+    build:
+      context: ./proxy
+    restart: always
+    depends_on:
+      - app
+    ports:
+      - 80:8000
+    volumes:
+      - static-data:/vol/static
+
+volumes:
+  gcp-creds:
+  mysql-data:
+  static-data:

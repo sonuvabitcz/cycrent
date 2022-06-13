@@ -93,27 +93,27 @@ class ShowBicycle(FormMixin, DataMixin, DetailView):
 
 
     def form_valid(self, form):
-        asyncio.run(self.async_save_data(form))
-        # logger.info('Created renting {1} {2}', self.request.user, form.instance.bicycle)
-        # date1 = form.cleaned_data['time_get']
-        # date2 = form.cleaned_data['time_return']
-        # total_price = self.object.price * (date2 - date1).total_seconds() / 60 / 60
+        # asyncio.run(self.async_save_data(form))
+        logger.info('Created renting {1} {2}', self.request.user, form.instance.bicycle)
+        date1 = form.cleaned_data['time_get']
+        date2 = form.cleaned_data['time_return']
+        total_price = self.object.price * (date2 - date1).total_seconds() / 60 / 60
+        self.request.user.profile.money-=total_price
+        date1 = form.cleaned_data['time_get']
+        date2 = form.cleaned_data['time_return']
+        total_price = self.object.price * (date2 - date1).total_seconds() / 60 / 60
+
+
+        form.instance.total_price = total_price
+        form.instance.bicycle = self.object
+
+        # update user's money after renting
         # self.request.user.profile.money-=total_price
-        # date1 = form.cleaned_data['time_get']
-        # date2 = form.cleaned_data['time_return']
-        # total_price = self.object.price * (date2 - date1).total_seconds() / 60 / 60
-
-
-        # form.instance.total_price = total_price
-        # form.instance.bicycle = self.object
-
-        # # update user's money after renting
-        # # self.request.user.profile.money-=total_price
         
-        # # self.request.user.save()
-        # form.instance.user = self.request.user
-        # form.instance.status = True
-        # form.save()
+        # self.request.user.save()
+        form.instance.user = self.request.user
+        form.instance.status = True
+        form.save()
         return super(ShowBicycle, self).form_valid(form)
 
 

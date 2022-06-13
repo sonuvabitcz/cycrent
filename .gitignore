@@ -147,3 +147,4 @@ tmp_mysqld/
 
 /data
 images-downloaded/
+docker-compose2.yaml
