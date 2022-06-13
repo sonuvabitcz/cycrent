@@ -66,7 +66,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -81,7 +80,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'api/templates')],
-        'DIRS': ['app/backend/api/templates'],
+        # 'DIRS': ['app/backend/api/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,7 +126,7 @@ DATABASES = {
 		'HOST': os.environ.get('DB_HOST'),
         'NAME': os.environ.get('DB_NAME'),
 		'USER': os.environ.get('DB_USER'),
-		'PASSWORD': os.environ.get('DB_PASSWORD'),
+		'PASSWORD': os.environ.get('DB_PASS'),
 		'PORT': '3306',
     }
 }
@@ -176,9 +175,7 @@ USE_TZ = True
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/static')
 STATIC_ROOT = '/vol/web/static'
 STATIC_URL = '/static/static/'
-STATIC_DIRS = []
-# heroku
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" 
+# STATIC_DIRS = []
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
