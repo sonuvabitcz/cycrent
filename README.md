@@ -1,7 +1,7 @@
 # CycRent
 ### Ⓒ iMaksus
 
-### Site is avalibale on: http://35.184.121.88/
+### Site is avalibale on: http://35.217.40.94/
 
 ![1 image](https://github.com/iMaksus/ISP-053504-2022-Lab3-4/blob/main/images-github/1.png?raw=true)
 
