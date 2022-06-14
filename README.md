@@ -2,7 +2,7 @@
 
 ### Technologies
 
-**Django, MySQL, Docker, Docker Compose, Nginx**
+Django, MySQL, Docker, Docker Compose, Nginx
 
 ### Site is avalibale on: http://35.217.40.94
 
