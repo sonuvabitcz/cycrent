@@ -95,9 +95,6 @@ class ShowBicycle(FormMixin, DataMixin, DetailView):
         date2 = form.cleaned_data['time_return']
         total_price = self.object.price * (date2 - date1).total_seconds() / 60 / 60
         self.request.user.profile.money-=total_price
-        date1 = form.cleaned_data['time_get']
-        date2 = form.cleaned_data['time_return']
-        total_price = self.object.price * (date2 - date1).total_seconds() / 60 / 60
         form.instance.total_price = total_price
         form.instance.bicycle = self.object
         self.request.user.save()
