@@ -1,6 +1,0 @@
-[run]
-omit=
-	*/tests/*
-	*/static/*
-	*/migrations/*
-	*/__init__.py
