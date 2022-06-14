@@ -108,9 +108,9 @@ class ShowBicycle(FormMixin, DataMixin, DetailView):
         form.instance.bicycle = self.object
 
         # update user's money after renting
-        # self.request.user.profile.money-=total_price
+        self.request.user.profile.money-=total_price
         
-        # self.request.user.save()
+        self.request.user.save()
         form.instance.user = self.request.user
         form.instance.status = True
         form.save()
