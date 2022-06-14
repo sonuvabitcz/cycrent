@@ -273,14 +273,3 @@ class EditRentingForm(forms.ModelForm):
             # if not is_enough_money(date1, date2, bicycle, user):
             #     raise forms.ValidationError(_('Not enough money to rent the bicycle'))
         return self.cleaned_data
-
-
-
-
-# class RegistrateUser(forms.Form):
-#     first_name = forms.CharField(max_length=50, label='First name', widget=forms.TextInput(attrs={'class': 'form-control'}), error_messages={'required':'Valid first name is required'}, required=True)
-#     last_name = forms.CharField(max_length=50, label='Last name', widget=forms.TextInput(attrs={'class': 'form-control'}), error_messages={'required':'Valid last name is required'})
-#     login = forms.CharField(max_length=100, label='Login', widget=forms.TextInput(attrs={'class': 'form-control'}), error_messages={'required':'Valid login is required'})
-#     password = forms.CharField(max_length=100, label='Password', widget=forms.TextInput(attrs={'class': 'form-control'}), error_messages={'required':'Valid password is required'})
-#     telephone = forms.CharField(max_length=15, required=False, label='Telephone', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '+375'}), error_messages={'required':'Valid telephone is required'})
-#     bank_card = forms.ModelChoiceField(queryset=BankCard.objects.all(), empty_label="Choose...", label='Bank card', error_messages={'required':'Please select your bank card'})

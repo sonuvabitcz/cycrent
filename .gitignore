@@ -38,10 +38,10 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
-htmlcov/
+backend/htmlcov/
 .tox/
 .nox/
-.coverage
+backend/.coverage*
 backend/.coverage
 backend/.coverage.*
 .cache
@@ -123,7 +123,15 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# tmp files
 /data
+images-downloaded/
+backend/media
+tmp_mysqld/
+cache
+
+#logs
+backend/*.log
 
 
 #Docker
@@ -140,11 +148,3 @@ backend/*/*/*/__pycache__/
 venv/
 .idea
 .vscode
-
-cache
-htmlcov
-tmp_mysqld/
-
-/data
-images-downloaded/
-docker-compose2.yaml

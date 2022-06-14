@@ -51,6 +51,3 @@ USER root
 RUN id
 
 CMD ["run.sh"]
-
-# RUN ["chmod", "+x", "/entrypoint.sh"]
-# ENTRYPOINT ["/entrypoint.sh"]

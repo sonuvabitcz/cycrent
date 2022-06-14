@@ -2,7 +2,6 @@ from logging import raiseExceptions
 from multiprocessing import AuthenticationError
 from django.urls import reverse_lazy
 from django.http import HttpResponse, HttpResponseNotAllowed, HttpResponseNotFound, Http404, HttpResponseForbidden
-from django.template import loader
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, TemplateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -12,11 +11,9 @@ from django.contrib.auth import logout, login
 from django.core.paginator import Paginator
 from datetime import datetime
 from django import forms
-from django.utils.decorators import classonlymethod
 import asyncio
 from asgiref.sync import sync_to_async
 import logging
-# from channels.db import database_sync_to_async
 
 import re
 
@@ -67,7 +64,6 @@ class ShowBicycle(FormMixin, DataMixin, DetailView):
     logger.info('Show one particular bicycle')
     # raise_exception = True
 
-
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context_def = self.get_user_context(
@@ -94,7 +90,7 @@ class ShowBicycle(FormMixin, DataMixin, DetailView):
 
     def form_valid(self, form):
         # asyncio.run(self.async_save_data(form))
-        logger.info('Created renting {1} {2}', self.request.user, form.instance.bicycle)
+        logger.info(f'Created renting {self.request.user} {2} {form.instance.bicycle}')
         date1 = form.cleaned_data['time_get']
         date2 = form.cleaned_data['time_return']
         total_price = self.object.price * (date2 - date1).total_seconds() / 60 / 60
@@ -102,15 +98,18 @@ class ShowBicycle(FormMixin, DataMixin, DetailView):
         date1 = form.cleaned_data['time_get']
         date2 = form.cleaned_data['time_return']
         total_price = self.object.price * (date2 - date1).total_seconds() / 60 / 60
-
 
         form.instance.total_price = total_price
         form.instance.bicycle = self.object
 
         # update user's money after renting
+        print('Money before write off')
+        print(self.request.user.profile.money)
         self.request.user.profile.money-=total_price
         
         self.request.user.save()
+        print('Money after write off')
+        print(self.request.user.profile.money)
         form.instance.user = self.request.user
         form.instance.status = True
         form.save()
@@ -335,83 +334,3 @@ def logout_user(request):
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Ohh... This page doesn\'t exists.\nCycRent</h1>')
-
-
-# --- Methods ---
-
-
-# def index(request):
-#     user_list = User.objects.order_by('id')
-#     template = loader.get_template('index.html')
-#     context = {
-#         'user_list': user_list,
-#     }
-
-#     return HttpResponse(template.render(context, request))
-
-
-# def index(request):
-#     if(request.GET):
-#         print(request.GET)
-#     users = User.objects.all()
-#     cards = BankCard.objects.all()
-#     context = {
-#         'users':users,
-#         'menu':menu,
-#         'cards':cards,
-#         'title':'Main page',
-#         'card_selected':0,
-#         'header_title': 'CycRent Home Page',
-#         'header_descr': 'Almost as CycGo but only for renting',
-#         'is_signed_in': is_signed_in,
-#     }
-#     return render(request, 'api/index.html', context=context)
-
-
-# def show_all_bicycles(request):
-#     bicycles = Bicycle.objects.all()
-#     context = {
-#         'bicycles':bicycles,
-#         'menu':menu,
-#         'title':'Bicycles',
-#         'header_title': "All bicycles for you",
-#         'header_descr': "Big wheels, big travel, big fun",
-#     }
-#     return render(request, 'api/bicycles.html', context=context)
-
-
-# def show_bicycle(request, bic_slug : str):
-#     bicycle = get_object_or_404(Bicycle, slug=bic_slug)
-#     context = {
-#         'bicycle': bicycle,
-#         'menu': menu,
-#         'title': bicycle.brand + " " + bicycle.model,
-#         'header_title': bicycle.brand + " " + bicycle.model,
-#         'header_descr': "Big wheels, big travel, big fun",
-#     }
-#     return render(request, 'api/bicycle.html', context=context)
-
-
-# def show_sign_in(request):
-#     context = {
-#         'menu':menu,
-#         'title':'Sign In',
-#     }
-#     return render(request, 'api/sign_in.html', context=context)
-
-
-# def show_registrate(request):
-#     if request.method == 'POST':
-#         form = RegistrateUserForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('home')
-#     else:
-#         form = RegistrateUserForm()
-#     context = {
-#         'menu':menu,
-#         'title': "Registrate",
-#         'title':'Sign In',
-#         'form':form
-#     }
-#     return render(request, 'api/registrate.html', context=context)
