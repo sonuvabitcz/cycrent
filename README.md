@@ -4,7 +4,7 @@
 
 Django, MySQL, Docker, Docker Compose, Nginx
 
-### Site is avalibale on: http://35.217.40.94
+### Site is avalibale on: http://35.217.40.94/
 
 ### Installation
 ```sh
