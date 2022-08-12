@@ -8,8 +8,8 @@ Django, MySQL, Docker, Docker Compose, Nginx
 
 ### Installation
 ```sh
-git clone https://github.com/iMaksus/ISP-053504-2022-Lab3-4.git
-cd ISP-053504-2022-Lab3-4
+git clone https://github.com/iMaksus/cycrent.git
+cd cycrent
 ```
 
 ### Run
