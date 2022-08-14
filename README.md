@@ -4,12 +4,12 @@
 
 Django, MySQL, Docker, Docker Compose, Nginx
 
-### Site is avalibale on: http://35.217.40.94
+### Site is avalibale on: http://35.217.40.94/
 
 ### Installation
 ```sh
-git clone https://github.com/iMaksus/ISP-053504-2022-Lab3-4.git
-cd ISP-053504-2022-Lab3-4
+git clone https://github.com/iMaksus/cycrent.git
+cd cycrent
 ```
 
 ### Run
@@ -18,7 +18,7 @@ You need to have docker-compose to run
 docker-compose -f docker-compose.dev.yml up
 ```
 
-### Overview
+### Overview 24437.214.36.182
 
 **Home Page**
 ![7 image](https://github.com/iMaksus/ISP-053504-2022-Lab3-4/blob/main/images-github/7.png?raw=true)
