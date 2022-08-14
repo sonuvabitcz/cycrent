@@ -4,7 +4,7 @@ services:
   web:
     container_name: web
     build: .
-    # entrypoint: ["/entrypoint.sh"]
+    entrypoint: ["/entrypoint.sh"]
     # command: sh -c "python manage.py runserver 0.0.0.0:8000"
     depends_on:
       - db

@@ -16,5 +16,5 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('registrate/', RegistrateUser.as_view(), name='registrate'),
     path('my_bicycles/', MyBicycles.as_view(), name='my_bicycles'),
-    path('my_bicycles/<int:pk>', MyOneBicycle.as_view(), name='my_one_bicycle'),
+    path('my_bicycles/<int:pk>', EditRenting.as_view(), name='my_one_bicycle'),
 ]

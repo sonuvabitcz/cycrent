@@ -90,7 +90,7 @@ class ShowBicycle(FormMixin, DataMixin, DetailView):
 
     def form_valid(self, form):
         # asyncio.run(self.async_save_data(form))
-        logger.info(f'Created renting {self.request.user} {2} {form.instance.bicycle}')
+        logger.info(f'Created renting {self.request.user} {form.instance.bicycle}')
         date1 = form.cleaned_data['time_get']
         date2 = form.cleaned_data['time_return']
         total_price = self.object.price * (date2 - date1).total_seconds() / 60 / 60
@@ -202,7 +202,7 @@ class RegistrateUser(DataMixin, CreateView):
         return redirect('home')
 
 
-class MyOneBicycle(LoginRequiredMixin, DataMixin, UpdateView):
+class EditRenting(LoginRequiredMixin, DataMixin, UpdateView):
     model = RentingInfo
     template_name = 'api/my_bicycle_update_form.html'
     form_class = EditRentingForm
@@ -224,8 +224,7 @@ class MyOneBicycle(LoginRequiredMixin, DataMixin, UpdateView):
             context['cancel_renting_form'] = CancelRenting()
         if 'edit_renting_form' not in context:
             # context['edit_renting_form'] = EditRentingForm(user=self.request.user)
-            print("in view user:" + str(self.request.user))
-            context['edit_renting_form'] = EditRentingForm(initial={'user': self.request.user, 'bicycle': self.object.bicycle})
+            context['edit_renting_form'] = EditRentingForm(initial={'bicycle': self.object.bicycle})
             # context['edit_renting_form'] = EditRentingForm(initial={'time_get':context['model'].time_get}) # чтобы данные не стирались после неправильного ввода формы
         return dict(list(context.items()) + list(context_def.items()))
 
@@ -293,7 +292,7 @@ class MyOneBicycle(LoginRequiredMixin, DataMixin, UpdateView):
         self.request.user.save()
         print(self.request.user.profile.money)
         print("SUCCESS")
-        return super(MyOneBicycle, self).form_valid(form)
+        return super(EditRenting, self).form_valid(form)
 
 
 class MyBicycles(LoginRequiredMixin, DataMixin, ListView):
@@ -301,6 +300,7 @@ class MyBicycles(LoginRequiredMixin, DataMixin, ListView):
     template_name = 'api/my_bicycles.html'
     context_object_name = 'rents'
     login_url = reverse_lazy('sign_in')
+    second_form_class = CancelRenting
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -310,6 +310,8 @@ class MyBicycles(LoginRequiredMixin, DataMixin, ListView):
         context['usr_email'] = self.request.user.email
         rents = self.get_queryset()
         context['usr_count_bicycles'] = rents.count
+        if 'clicker_money' not in context:
+            context['clicker_money'] = CancelRenting()
         print(RentingInfo.objects.filter(user=self.request.user))
         return dict(list(context.items()) + list(context_def.items()))
 

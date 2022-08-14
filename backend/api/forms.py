@@ -212,6 +212,9 @@ class RentBicycleForm(forms.ModelForm):
     #         if not is_time_free(date1, date2):
     #             raise forms.ValidationError('Incorrect time')
 
+# class ClickerMoney(forms.Form):
+#     pass
+
 
 class CancelRenting(forms.ModelForm):
     # cancel_renting = forms.BooleanField(widget=forms.HiddenInput, initial=True)
@@ -225,6 +228,15 @@ class CancelRenting(forms.ModelForm):
 class EditRentingForm(forms.ModelForm):
     time_get = forms.DateTimeInput()
     time_return = forms.DateTimeInput()
+    bicycle = None
+
+    def __init__(self, *args, **kwargs):
+        self.bicycle = kwargs.pop('bicycle', None)
+        # self.obj_user = kwargs.pop('user', None)
+        print("Bicycle inside __init__")
+        print(self.bicycle)
+        # print(self.obj_user)
+        super(EditRentingForm, self).__init__(*args, **kwargs)
 
     class Meta:
         model = RentingInfo

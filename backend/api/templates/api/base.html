@@ -95,10 +95,11 @@
 						<!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
 							<li class="nav-item"><p class="nav-item">{{ user.username }}</p></li>
 						</ul> -->
-						<p class="nav-item usrfield">{{ user.username }}</p>
+						<a class="nav-link active usrfield" href="{% url 'my_bicycles' %}">{{ user.username }}</a>
 						<a class="bi-cart-fill me-1" href="{% url 'logout' %}"><button class="btn btn-outline-dark">Sign Out</button></a>
 					{% else %}
 						<a class="bi-cart-fill me-1" href="{% url 'sign_in' %}"><button class="btn btn-outline-dark">Sign In</button></a>
+						<a class="bi-cart-fill me-1" href="{% url 'registrate' %}"><button class="btn btn-outline-dark">Registrate</button></a>
 					{% endif %}
 				</div>
 			</div>
