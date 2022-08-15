@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Building') {
+        stage('Run docker-compose') {
             steps {
                 echo 'Building stage'
-				sh "ls -lah"
+				sh "docker-compose up -d docker-compose.prod.yml"
             }
         }
         stage('Testing') {
