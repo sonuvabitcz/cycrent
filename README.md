@@ -50,5 +50,3 @@ docker-compose -f docker-compose.dev.yml up
 
 **Sign Up Page (validation)**
 ![11 image](https://github.com/iMaksus/ISP-053504-2022-Lab3-4/blob/main/images-github/11.png?raw=true)
-
-### Ⓒ iMaksus
